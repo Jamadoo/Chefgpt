@@ -1,0 +1,269 @@
+{
+    "sRecipePrompt": "You are an AI assistant designed to create real, working recipes based on a user's profile, preferences, and meal description. Your goal is to generate a recipe that fits the user's needs while adhering strictly to their preferences and constraints. Pay close attention to the user's inputs.\n\n---\n\n**You Will Recive The Following Inputs Inside The Provided Tags:**\n\n1. **<Goal>**  \n   The user's fitness goal, which may include information about calorie target, culture, meal types, etc. Examples: weight loss, bulking, general health.\n\n2. **<LikedFoods>**  \n   A list or description of foods the user enjoys. Use this as a reference for what foods to *lean towards* in the recipe. You may (and should most of the time) be more creative and create recipes not listed on this list. This should ONLY be a guideline of what the user enjoys.\n\n3. **<DislikedFoods>**  \n   A list or description of foods the user does not enjoy. These should be genuinely avoided when generating new recipes.\n\n4. **<Allergies>**  \n   A list or description of foods or ingredients the user is allergic to. **These ingredients must be avoided at all costs.**\n\n5. **<MealDescription>**  \n   A description of the type of meal or recipe to generate. This might include whether it's dinner, breakfast, or lunch; the type of meal; what the user craves; and the user's mood; etc. PRIORITIZE THIS INPUT OVER ALL OTHER INPUTS. This input goes above all other inputs. ALL OTHER INPUTS ARE A GUIDE.\n\n6. **<PossibleIngredients>**  \n   A list of all the ingredients the user has available. **Only use ingredients from this list (unless otherwise specified by other inputs).**. If the user states in the <MealDescription> input you may use other ingredients that they do not yet own, only then you may be more creative and create recipes with ingredients which is not listed inside <PossibleIngredients>. Do not try to use as many ingredients as possible \u2014 use only what's required for a meal that fits the other specifications. If a user is allergic to a ingredient listed here, ignore the ingredient and dont use it. You may assume the user has basic ingredients as listed below.\n\n---\n\n**Basic Ingredients (assumed to be available):**\n\n- Salt\n- Pepper\n- Sugar\n- All-Purpose Flour\n- Baking powder\n- Baking soda\n- Oil (olive oil, vegetable oil)\n- Butter\n- Milk\n- Common herbs and spices (e.g., paprika)\n\n---\n\n**Outputs:**\n\nONLY Provide the following information, each within the specified tags:\n\n1. **<Method>**  \n   Provide detailed cooking or baking steps for the recipe. DO NOT DISPLAY THE NAME OF THE RECIPE HERE.\n\n2. **<Ingredients>**  \n   All the required ingredients with their measurements.\n\n3. **<Goal>**  \n   Explain how the recipe aligns with the user's specifications.\n\n4. **<Macros>**  \n   List a approximate of all the important macros of the recipe based on the **<Goal>** input. If the goal is fitness/bodybuilding-related, list macros like protein, calories, etc. If it's more health-related, include additional macros like vitamins, minerals, etc. Ensure the marcos are as realistic as possible. After you list all the macros give a quick overview where each marco originates from.\n\n5. **<Name>**\n   a Name for the Recipe. Do not display this name anywhere else, only inside this tag. ONLY THIS TAG does not get any type of RTF.\n\n---\n\n**Formatting Instructions:**\n\n- Your outputs will be displayed inside a Delphi 11.3 Rich Edit. **Use Rich Text Formatting (RTF)** where appropriate to make the recipe visually appealing and easy to read.\n- You may ONLY adjust formatting for bold, italics, underlining and simliar formatting\n- **YOU MAY NOT change the text's color, font or fontsize!!!**\n- **DO NOT USE ANY \"\\fonttbl\" RTF TAG!!!**\n- Ensure you are using RTF Version 1.0, so that delphi TRichEdts will it understand and be able to render the text properly.\n-Ensure you use the correct tags for RTF, for example, ensure you sure \\b with \\b0 to bold and not \"*\"\n- Remeber to end each RTF text with \"}\". You tend to forget that.\n- Please be super creative with the RTF formatting (while strictly following the above rules) and make it visually appealing. You may NOT add ANY emojes anywhere in the document.\n- Please use bulletpoints, '-' points or numbered lists where possible.\n\n---\n\n**Important Guidelines:**\n\n- **Avoid** using any ingredients listed under **<DislikedFoods>** or **<Allergies>**.\n- Ensure that the recipe uses **only** the ingredients listed in **<PossibleIngredients>**, along with the basic ingredients provided above, unless otherwise specified inside other inputs (most likely inside <MealDescription>).\n- Focus on creating a realistic and practical recipe that fits the user's specifications.\n- If you decide to use additinal ingredients inside your recipe which is not listed inside <PossibleIngredients>, Then you have to add a indcator after each ingredient name you additinally used, inside the <Ingredients> output. For example, lets say you added eggs:\n5 Eggs - Need To Be Bough\nFlour\nGround Beef\n...\n- PROVIDE THE OUTPUTS INSIDE NICLY ORGINISED TAGS. Your reponse will be formatted using a pre programmed algorithm. For exmaple:\n<Method>\nRTF formatted text here...\n</Method>\n<Ingredients>\nRTF formatted text here...\n</Ingredients>\n...\n\n---\n\n**Dealing With Incorrect/Unusable Inputs**\n- If any inputs are unusable or unclear. Start your reponse with \"[ERROR]:\" followed by a description of what is wrong and how the user can fix their inputs.\n- **Rather display a error then creating a 6/10 quality recipe***. If you believe you cna create a recipe which has a qaulity of 7/10 or higher, no error is needed\n- Guide the user to modify their inputs for you to understand their needs better, do not ask the user a qeustion which will need a follow up reply.\n- Dont refer to the inputs as <Goal>, <LikedFoods>, etc. Rather refer to it in a more user-friendly matter, like \"Your fitness goal settings\", \"Your listed liked foods\", etc.\n- My program will detect the \"[ERROR]\" message and display it to the user.\n- Explain to the user exactly what is wrong, do not be vauge. Be as helpfull as possible\n\n---\n\n** INPUTS: ***",
+
+    "sImagePrompt": "You are an AI assistant tasked with analyzing an image of a fridge or ingredients closet. Your goal is to identify and list all the visible ingredients from the image, following these strict guidelines:\n\n1. Ingredient Listing:\na) List only ingredients where you are 60% or higher confident they are correct. If you are less than 70% confident, omit the ingredient entirely.\nb) For sauces or spices (where visual clues may be limited), list them only if you are 80% or higher confident of their identity. This is crucial for avoiding incorrect listings of ambiguous items.\n\nAmbiguity Details:\na) Do not list ambiguous items. This applies when an ingredient cannot be confidently identified, such as when a bottle has an indistinct label or packaging, or when only general visual features are visible (e.g., \"a green sauce\"). If you cannot determine exactly what the item is, do not list it at all.\nb) Do not make guesses based on partial visibility. For example, if part of a label is obscured and you cannot identify the exact ingredient, exclude it from the list.\n\n2. Ingredient Format:\na) Each ingredient must be listed on its own line.\nb) If you are 60% or higher confident of the quantity, include it in the following format:\nIngredient Name ; Amount Measurement\nExample: Large Bananas ; 5 Pieces\nc) If you are not confident (60%) about the quantity, list the ingredient name only:\nExample: Large Bananas\nd) Use exactly these measurements for the amount: g (grams), ml (milliliters), or Pieces (for whole items like fruits or vegetables).\n\n3. General Ingredient Naming:\na) If brand names or specific details are uncertain (below 70% confidence), use a more general term for the ingredient. This helps ensure accuracy when the branding or specific variety is unclear.\nb) Do not list the same ingredient twice with different brand names or quantities. If there\u2019s uncertainty about brand or quantity, pick the most likely option and list it once.\n\n4. Error Handling:\na) If the image is of low quality or contains issues that prevent ingredient identification, generate a custom error message specific to the problem in the image.\n\nError Guidelines:\na) The error message must start with the text \"[ERROR]:\" followed by a custom message based on the problem detected in the image.\nb) You must list ATLEST ONE ingredient, if you are unable to list alteast one ingredient, then display a error\nc) The message should clearly explain why the image could not be processed and how the user can improve the image for better results. Here are a few examples:\nIf the image is too blurry, return:\n[ERROR]: The image is too blurry to identify any ingredients. Please upload a clear, focused image.\nIf the image has poor lighting, return:\n[ERROR]: The lighting in the image is too poor to identify ingredients. Please take the photo in a well-lit environment.\nIf the image is not of a fridge or pantry, return:\n[ERROR]: The image does not contain a fridge or pantry with recognizable ingredients. Please upload a relevant image.\nIf the image is obstructed or cluttered, return:\n[ERROR]: The image is too cluttered or obstructed to accurately identify ingredients. Please ensure ingredients are clearly visible and not blocked.\nThe error should always be specific to the context of the issue, ensuring the user understands the exact problem with their image.\n\n5. No Extra Information:\na) Provide no introductory sentences, explanations, or comments in your response. Only list the ingredients as described above or return the [ERROR] message if applicable.",
+
+    "Examples": [
+        "My fitness goal is to lose weight while maintaining muscle mass. I aim to follow a balanced, low-carb, high-protein diet to support fat loss and muscle recovery. My calorie goal per meal is about 600, with a focus on whole foods, lean proteins like chicken and fish, and plenty of vegetables. I'd like to avoid refined sugars and processed foods as much as possible. I also want meals that are quick to prepare, as I have a busy schedule.",
+        "I enjoy a variety of foods, but I particularly love Mediterranean cuisine, including ingredients like olive oil, garlic, tomatoes, and fresh herbs. I also enjoy lean proteins like chicken, turkey, and fish (especially salmon). I love vegetables, especially leafy greens, bell peppers, and zucchini. I prefer meals with bold flavors, like dishes with spices such as cumin, paprika, and chili. I'm a fan of stir-fried dishes, grilled foods, and anything that involves fresh, wholesome ingredients.",
+        "I prefer to avoid red meats like beef and pork, as well as processed meats like sausages and bacon. I'm not a fan of overly creamy textures, so I usually steer clear of heavy cream-based sauces or dishes. I dislike mushrooms and eggplant due to their texture. I'm also not a big fan of overly sweet foods, so I avoid desserts that are too sugary. Additionally, I try to avoid foods with artificial additives or preservatives.",
+        "I am allergic to peanuts and tree nuts, so I need to avoid any dishes that contain these ingredients. I also have a mild intolerance to dairy, so I prefer recipes that are either dairy-free or use lactose-free alternatives. Gluten isn't a major issue, but I try to limit it when possible."
+    ],
+
+    "sPresetExtraIng": "You MAY and MUST Use More Ingredients Listed Then Inside <PossibleIngredients>. Please flag each additinal ingredient with \"(Need To Be Bought)\". IF <PossibleIngredients> IS EMPTY and nothing is listed inside that tag, then you may use ANY ingredients you like.",
+    
+    "ProxySettings":{
+        "Host": "",
+        "Port": "",
+        "Username": "",
+        "Password": ""
+    },
+
+    "GenorateWizard": {
+        "1": {
+            "Component": "Radiogroup",
+            "Options": [
+                "Breakfast", "Lunch", "Dinner", "Snack", "Dessert"
+            ],
+            "Question": "What Meal Are You Planning For?",
+            "PromptString": "Meal Type: *"
+        },
+        "2": {
+            "Component": "Radiogroup",
+            "Options": [
+                "Appetizer", "Main", "Side", "Drink", "Dessert"
+            ],
+            "Question": "What Type of Dish Would You Like?",
+            "PromptString": "Dish Type: *"
+        },
+        "3": {
+            "Component": "CheckGroup",
+            "Options": [
+                "Sweet", "Savory", "Spicy", "Tangy", "Umami", "Bitter"
+            ],
+            "Question": "What Flavors or Tastes Are You Craving?",
+            "PromptString": "Flavors/Tastes: *"
+        },
+        "4": {
+            "Component": "CheckGroup",
+            "Options": [
+                "Comfort", "Energizing", "Post-Workout", "Light", "Indulgent", "Romantic"
+            ],
+            "Question": "What's the Occasion or Your Current Mood?",
+            "PromptString": "Occasion/Mood: *"
+        },
+        "5": {
+            "Component": "Radiogroup",
+            "Options": [
+                "Italian", "Thai", "Mexican", "Indian", "Japanese", "Any"
+            ],
+            "Question": "Which Cuisine Are You Inspired By Today?",
+            "PromptString": "Cuisine Preference: *"
+        },
+        "6": {
+            "Component": "Radiogroup",
+            "Options": [
+                "Grill", "Bake", "Stir-Fry", "Slow Cook", "No-Cook", "One-Pot", "Any"
+            ],
+            "Question": "How Would You Like to Prepare This Meal?",
+            "PromptString": "Cooking Method: *"
+        },
+        "7": {
+            "Component": "Radiogroup",
+            "Options": [
+                "Under 15 Min", "15-30 Min", "30-60 Min", "No Limit"
+            ],
+            "Question": "How Much Time Can You Spend on Cooking?",
+            "PromptString": "Time Available for Cooking: *"
+        },
+        "8": {
+            "Component": "Radiogroup",
+            "Options": [
+                "Classic", "Modern", "Surprise Me"
+            ],
+            "Question": "How Adventurous Do You Feel with This Meal?",
+            "PromptString": "Adventurous Level: *"
+        },
+        "9": {
+            "Component": "Radiogroup",
+            "Options": [
+                "Elegant", "Vibrant", "Simple", "Any"
+            ],
+            "Question": "How Would You Like the Meal to Look When Served?",
+            "PromptString": "Presentation Style: *"
+        },
+        "10": {
+            "Component": "SpinEdit",
+            "Question": "How Many People Are You Cooking For?",
+            "PromptString": "Number of Servings: *"
+        },
+        "11": {
+            "Component": "Edit",
+            "Question": "Any Specific Food Types You Have In Mind? Ex. Pasta, Burger, etc.",
+            "PromptString": "Specific Food Types: *"
+        },
+        "12": {
+            "Component": "Edit",
+            "Question": "Any Additional Details or Special Requests?",
+            "PromptString": "Additional Information: *"
+        }
+    },
+
+    "FitnessGoalWizard": {
+        "1": {
+            "Component": "CheckGroup",
+            "Options": [
+                "Lose Weight", "Gain Weight", "Maintain Weight", "Build Muscle", "Improve Health"
+            ],
+            "Question": "What Is Your Primary Fitness Goal?",
+            "PromptString": "Fitness Goal: *"
+        },
+        "2": {
+            "Component": "CheckGroup",
+            "Options": [
+                "High Protein", 
+                "Low Carb", 
+                "Balanced", 
+                "Low Fat", 
+                "Low Sugar", 
+                "Low Sodium", 
+                "High Fiber"
+            ],
+            "Question": "Do You Have Any Macronutrient Preferences?",
+            "PromptString": "Macronutrient Preferences: *"
+        },
+        "3": {
+            "Component": "Radiogroup",
+            "Options": [
+                "Sedentary", "Lightly Active", "Moderately Active", "Very Active", "Extremely Active"
+            ],
+            "Question": "What Is Your Typical Activity Level?",
+            "PromptString": "Activity Level: *"
+        },
+        "4": {
+            "Component": "SpinEdit",
+            "Question": "What Is Your Target Calorie Intake PER MEAL (Devide Daily Intake By Your Amount Of Meals Per Day)?",
+            "PromptString": "Target Calorie Intake: * calories"
+        },
+        "5": {
+            "Component": "CheckGroup",
+            "Options": [
+                "High Fiber", "Low Sodium", "High Iron", "High Calcium", "Omega-3", "None"
+            ],
+            "Question": "Are There Any Specific Nutrients You Want to Focus On?",
+            "PromptString": "Specific Nutrient Focus: *"
+        },
+        "6": {
+            "Component": "CheckGroup",
+            "Options": [
+                "Diabetes", 
+                "Hypertension", 
+                "High Choles.",  
+                "Lactose Intol.", 
+                "Heart Disease", 
+                "Gluten Sensitivity", 
+                "None"
+            ],
+            "Question": "Do You Have Any Health Conditions to Consider?",
+            "PromptString": "Health Conditions: *"
+        },
+        "7": {
+            "Component": "Edit",
+            "Question": "Any Additional Information or Special Requests?",
+            "PromptString": "Additional Fitness Goal Information: *"
+        }
+    },
+
+    "LikedFoodsWizard": {
+        "1": {
+            "Component": "CheckGroup",
+            "Options": [
+                "Fruits", "Vegetables", "Meats", "Seafood", "Grains", "Dairy", "Legumes", "Sweets", "Spices", "Herbs"
+            ],
+            "Question": "Which Types of Foods Do You Enjoy? (Select All That Apply)",
+            "PromptString": "Liked Food Types: *"
+        },
+        "2": {
+            "Component": "Edit",
+            "Question": "Please List Specific Ingredients or Dishes You Love",
+            "PromptString": "Specific Foods You Love: *"
+        },
+        "3": {
+            "Component": "CheckGroup",
+            "Options": [
+                "Salty", "Sweet", "Savory", "Spicy", "Sour", "Bitter", "Umami"
+            ],
+            "Question": "Which Flavor Profiles Do You Prefer?",
+            "PromptString": "Preferred Flavor Profiles: *"
+        },
+        "4": {
+            "Component": "CheckGroup",
+            "Options": [
+                "Comfort Food", "Exotic", "Healthy", "Indulgent", "Quick Meals", "Slow Cooked", "One-Pot Dishes"
+            ],
+            "Question": "What Types of Meals Do You Enjoy?",
+            "PromptString": "Favorite Meal Types: *"
+        }
+    },
+    
+    "DislikedFoodsWizard": {
+        "1": {
+            "Component": "CheckGroup",
+            "Options": [
+                "Fruits", "Vegetables", "Meats", "Seafood", "Grains", "Dairy", "Legumes", "Sweets", "Spices", "Herbs"
+            ],
+            "Question": "Which Types of Foods Do You Dislike? (Select All That Apply)",
+            "PromptString": "Disliked Food Types: *"
+        },
+        "2": {
+            "Component": "Edit",
+            "Question": "Please List Specific Ingredients or Dishes You Dislike",
+            "PromptString": "Specific Foods You Dislike: *"
+        },
+        "3": {
+            "Component": "CheckGroup",
+            "Options": [
+                "Salty", "Sweet", "Savory", "Spicy", "Sour", "Bitter", "Umami"
+            ],
+            "Question": "Which Flavor Profiles Do You Dislike?",
+            "PromptString": "Disliked Flavor Profiles: *"
+        },
+        "4": {
+            "Component": "CheckGroup",
+            "Options": [
+                "Too Sweet", "Too Spicy", "Too Bitter", "Too Rich", "Too Greasy", "Too Bland"
+            ],
+            "Question": "What Characteristics of Food Do You Typically Avoid?",
+            "PromptString": "Food Characteristics You Avoid: *"
+        }
+    },
+
+    "AllergiesWizard": {
+        "1": {
+            "Component": "CheckGroup",
+            "Options": [
+                "Peanuts", "Tree Nuts", "Shellfish", "Fish", "Milk", "Eggs", "Wheat", "Soy", "Sesame", "Gluten"
+            ],
+            "Question": "Select Any Common Allergens You Have (Select All That Apply)",
+            "PromptString": "Allergies: *"
+        },
+        "2": {
+            "Component": "Edit",
+            "Question": "Please List Any Other Food Allergies Not Listed Above",
+            "PromptString": "Other Food Allergies: *"
+        },
+        "3": {
+            "Component": "Radiogroup",
+            "Options": [
+                "Mild", "Moderate", "Severe"
+            ],
+            "Question": "How Severe Are Your Allergies?",
+            "PromptString": "Allergy Severity: *"
+        },
+        "4": {
+            "Component": "Edit",
+            "Question": "Any Additional Information Regarding Your Allergies?",
+            "PromptString": "Additional Allergy Information: *"
+        }
+    }    
+}

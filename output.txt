@@ -1,0 +1,60 @@
+<Method>
+{\rtf1 Here is a delightful spicy cheese burger recipe that aligns with your preferences:\
+
+1. \b Prepare the Patties: \b0 
+    - In a mixing bowl, gently combine the \i meat patties \i0 with a pinch of \i salt \i0, \i black pepper \i0, and \i paprika \i0. Coat evenly with spices for a delicious kick.
+
+2. \b Cook the Patties: \b0 
+    - Heat a non-stick pan over medium-high heat and drizzle \i olive oil \i0. Sear the patties for about 4-5 minutes on each side until fully cooked and slightly crispy on the outside.
+
+3. \b Prepare the Vegetables: \b0 
+    - While the patties cook, slice the \i red \i0 and \i orange bell peppers \i0 thinly. Sauté them in another pan until they are tender and slightly charred for an extra flavor boost.
+
+4. \b Assemble the Burgers: \b0 
+    - Place a slice of \i cheese \i0 on each cooked patty, allowing it to melt slightly in the heat of the pan. Meanwhile, toast \i burger buns - Need To Be Bough \i0 briefly for a crisp exterior.
+
+5. \b Build the Burger: \b0 
+    - Layer lettuce and tomato slices on the bottom bun, followed by the cheesy patty. Generously add the sautéed bell peppers and top it with the top bun.
+
+6. \b Add Spice: \b0
+   - If desired, add some \i hot sauce - Need To Be Bough \i0 to the burger for that extra spicy touch!
+
+7. \b Ready to Serve: \b0
+   - Serve immediately with a side of \i potato wedges \i0 or enjoy as is for a protein-packed, spicy delight that fits your high-protein, low-carb goal.}
+</Method>
+
+<Ingredients>
+{\rtf1
+- Olive oil (for cooking)
+- 2 Meat Patties
+- Salt and Black Pepper (to taste)
+- Paprika (to taste)
+- 4 slices of Cheese
+- 2 Burger Buns - Need To Be Bough
+- 1 Red Bell Pepper, sliced
+- 1 Orange Bell Pepper, sliced
+- Lettuce leaves
+- 1 Tomato, sliced
+- Hot Sauce - Need To Be Bough (optional)
+}
+</Ingredients>
+
+<Goal>
+{\rtf1 The recipe is designed to aid in weight gain while improving health by focusing on high protein and low-carb ingredients, aligned with your fitness goal settings. The burger is packed with protein from the meat patties and cheese, while the addition of fresh vegetables provides essential nutrients, enhancing overall health. Additionally, the spicy flavor profile matches your preferred taste, making it a satisfying and energizing meal.}
+</Goal>
+
+<Macros>
+{\rtf1 Based on the ingredients and your fitness goals, here are approximate macros per serving for the spicy cheese burger:\
+
+- \b Calories: \b0 515 kcal
+- \b Protein: \b0 30 grams
+- \b Carbohydrates: \b0 28 grams
+- \b Fat: \b0 32 grams
+
+\i Overview: \i0 
+The high protein content largely comes from the meat patties and cheese. The carbohydrates are primarily from the burger buns and vegetables. The fats are a combination of healthy fats from the olive oil and the cheese. This distribution supports your muscle-building goals and energy needs.}
+</Macros>
+
+<Name>
+{\rtf1 Spicy Gourmet Cheese Burger}
+</Name>
