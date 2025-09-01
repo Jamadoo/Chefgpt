@@ -72,7 +72,7 @@ This project demonstrates strong **problem-solving**, **database management**, a
 
 ## 🖼️ UI Screenshots From My Planning Phase
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/cdc67874-06fe-4c31-b786-a9f21b702c9e" width="30%" />
+  <img src="https://github.com/user-attachments/assets/cdc67874-06fe-4c31-b786-a9f21b702c9e" width="90%" />
 </p>  
 
 ---
