@@ -41,7 +41,7 @@ It’s a polished, standalone Windows application built **entirely from scratch*
 - Ingredients available in their fridge or pantry (identified via **image scanning**)  
 - Personal preferences, allergies, and dietary restrictions  
 
-This project demonstrates strong **problem-solving**, **database management**, and **AI integration** skills while maintaining a **clean, intuitive user interface**:contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1}.
+This project demonstrates strong **problem-solving**, **database management**, and **AI integration** skills while maintaining a **clean, intuitive user interface**
 
 ---
 
@@ -70,11 +70,9 @@ This project demonstrates strong **problem-solving**, **database management**, a
 
 ---
 
-## 🖼️ Screenshots
+## 🖼️ UI Screenshots From My Planning Phase
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/a4d18eaa-acfe-4bcd-bcf0-6c12e844c0da" width="30%" />
-  <img src="https://github.com/user-attachments/assets/269aba49-671e-4eb3-b43f-75400e701b5b" width="30%" />
-  <img src="https://github.com/user-attachments/assets/aedc2b16-cc8c-408d-aca1-41ef5bafd8b2" width="30%" />
+  <img src="https://github.com/user-attachments/assets/cdc67874-06fe-4c31-b786-a9f21b702c9e" width="30%" />
 </p>  
 
 ---
